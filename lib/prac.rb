@@ -1,17 +1,9 @@
-module Greeter
+class Greeter
 
   def hello
-    "hello"
+    raise "無効なメソッド"
   end
 end
 
-begin
-  Greeter.hello
-rescue => e
-  puts e.class .superclass
-  puts e.message
-  puts e.backtrace
-  p e
-end
-
-puts "終了"
+greeter = Greeter.new
+greeter.hello

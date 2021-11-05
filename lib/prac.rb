@@ -1,20 +1,13 @@
-module NameChanger
-  def change_name
-    self.name = "geri"
+module AwesomeApi
+
+  class << self
+    attr_accessor :base_url, :debug_mode
   end
+
+  @base_url = ''
+  @debug_mode = false
 end
 
-class User
-  include NameChanger
-
-  attr_accessor :name
-
-  def initialize(name)
-    @name = name
-  end
-end
-
-user = User.new("izumi")
-p user.name
-user.change_name
-p user.name
+p AwesomeApi.base_url
+AwesomeApi.base_url = "www"
+p AwesomeApi.base_url

@@ -1,13 +1,17 @@
-module AwesomeApi
+module Greeter
 
-  class << self
-    attr_accessor :base_url, :debug_mode
+  def hello
+    "hello"
   end
-
-  @base_url = ''
-  @debug_mode = false
 end
 
-p AwesomeApi.base_url
-AwesomeApi.base_url = "www"
-p AwesomeApi.base_url
+begin
+  Greeter.hello
+rescue => e
+  puts e.class .superclass
+  puts e.message
+  puts e.backtrace
+  p e
+end
+
+puts "終了"

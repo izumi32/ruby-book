@@ -1,9 +1,8 @@
-class Greeter
+require 'date'
 
-  def hello
-    raise "無効なメソッド"
-  end
+def to_date(string)
+    Date.parse string rescue nil
 end
 
-greeter = Greeter.new
-greeter.hello
+p to_date("2019-11-11")
+p to_date("aksak")

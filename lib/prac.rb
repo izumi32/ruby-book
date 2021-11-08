@@ -1,41 +1,11 @@
-def greeting(&block)
-  puts "こんにちは"
-  unless block.nil?
-    text = block.call("おはよう")
-    puts text
-  end
-  puts "こんばんわ"
+def greeting(proc_1, proc_2, proc_3)
+  puts proc_1.call("おは")
+  puts proc_2.call("こんに")
+  puts proc_3.call("こんば")
 end
 
-# greeting
-# # greeting do
-# #   puts "おはよう"
-# # end
-#
-# greeting do |text|
-#   text * 2
-# end
+shuffle_proc = Proc.new { |text| text.chars.shuffle.join }
+repeat_proc = Proc.new { |text| text * 2 }
+question_proc = Proc.new { |text| "#{text}?" }
 
-def greeting_ja(&block)
-  texts = ["おはよう", "こんにちは", "こんばんわ"]
-  greeting_common(texts, &block)
-end
-
-def greeting_en(&block)
-  texts = ["good morning", "hello", "good evening"]
-  greeting_common(texts, &block)
-end
-
-def greeting_common(texts, &block)
-  puts block.call(texts[0])
-end
-
-greeting_ja do |text|
-  text * 2
-end
-
-greeting_en do |text|
-  text.upcase
-end
-
-greeting_en { |text| text * 2 }
+greeting(shuffle_proc, repeat_proc, question_proc)

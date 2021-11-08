@@ -1,6 +1,7 @@
 require 'date'
 
 def to_date(string)
+  raise
     Date.parse string rescue nil
 end
 

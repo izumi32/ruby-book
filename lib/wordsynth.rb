@@ -1,11 +1,11 @@
 class WordSynth
 
   def initialize
-    @effect = []
+    @effects = []
   end
 
   def add_effect(effect)
-    @effect << effect
+    @effects << effect
   end
 
   def play(original_words)

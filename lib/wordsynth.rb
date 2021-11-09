@@ -1,4 +1,4 @@
-class Wordsynth
+class WordSynth
 
   def initialize
     @effect = []

@@ -1,24 +1,24 @@
 class Gate
-
-  STATIONS = [:umeda, :juso, :mikuni]
+  attr_reader :station
+  STATION = [:umeda, :juso, :mikuni]
   FARES = [150, 190]
 
-  def initialize(name)
-    @name = name
+  def initialize(station)
+    @station = station
   end
 
   def enter(ticket)
-    ticket.stamp(@name)
+    ticket.enter_station = self.station
   end
 
   def exit(ticket)
-    fare = calc_fare(ticket)
-    fare <= ticket.fare
+    price = calc_fare(ticket)
+    price <= ticket.price
   end
 
   def calc_fare(ticket)
-    from = STATIONS.index(ticket.stamped_at)
-    to = STATIONS.index(@name)
+    from = STATION.index(ticket.enter_station)
+    to = STATION.index(self.station)
     distance = to - from
     FARES[distance - 1]
   end

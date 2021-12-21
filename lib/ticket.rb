@@ -1,12 +1,8 @@
 class Ticket
+  attr_accessor :price, :enter_station
 
-  attr_reader :fare, :stamped_at
-  
-  def initialize(fare)
-    @fare = fare
+  def initialize(price)
+    @price = price
   end
 
-  def stamp(name)
-    @stamped_at = name
-  end
 end

@@ -1,8 +1,8 @@
+require './lib/gate.rb'
+require './lib/ticket.rb'
 require 'minitest/autorun'
-require './lib/gate'
-require './lib/ticket'
 
-class GateTest < MiniTest::Test
+class GateTest < Minitest::Test
 
   def setup
     @umeda = Gate.new(:umeda)
@@ -10,16 +10,16 @@ class GateTest < MiniTest::Test
     @mikuni = Gate.new(:mikuni)
   end
 
-  def test_umeda_to_juso
+  def test_umeda_to_juso_when_fare_is_enough
     ticket = Ticket.new(150)
     @umeda.enter(ticket)
     assert @juso.exit(ticket)
   end
 
   def test_umeda_to_mikuni_when_fare_is_not_enough
-    ticket = Ticket.new(150)
+    ticket = Ticket.new(190)
     @umeda.enter(ticket)
-    refute @mikuni.exit(ticket)
+    assert @mikuni.exit(ticket)
   end
 
   def test_umeda_to_mikuni_when_fare_is_enough
@@ -28,7 +28,7 @@ class GateTest < MiniTest::Test
     assert @mikuni.exit(ticket)
   end
 
-  def test_juso_to_miuni
+  def test_juso_to_mikuni_when_fare_is_enough
     ticket = Ticket.new(150)
     @juso.enter(ticket)
     assert @mikuni.exit(ticket)

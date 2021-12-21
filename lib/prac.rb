@@ -13,8 +13,13 @@ class User
     "#{self.first_name}#{self.last_name}"
   end
 
+  def hello
+    "Hello, #{first_name}"
+  end
+
 end
 
 user = User.new('izumi', 'kento', '28')
 p user.first_name
 p user.full_name
+p user.hello

@@ -1,5 +1,6 @@
 class Product
   attr_reader :name, :price
+  DEFAULT_PRICE = 0
 
   def initialize(name, price)
     @name = name
@@ -23,8 +24,3 @@ class DVD < Product
     super + ", #{running_time}"
   end
 end
-
-product = Product.new('drama', 800)
-dvd = DVD.new('drama', 800, 60)
-p product.to_s
-p dvd.to_s

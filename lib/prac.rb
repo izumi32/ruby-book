@@ -1,26 +1,12 @@
-class Product
-  attr_reader :name, :price
-  DEFAULT_PRICE = 0
+class User
+  class BloodType
+    attr_reader :type
 
-  def initialize(name, price)
-    @name = name
-    @price = price
-  end
-
-  def to_s
-    "#{name}, #{price}"
+    def initialize(type)
+      @type = type
+    end
   end
 end
 
-class DVD < Product
-  attr_reader :running_time
-
-  def initialize(name, price, running_time)
-    super(name, price)
-    @running_time = running_time
-  end
-
-  def to_s
-    super + ", #{running_time}"
-  end
-end
+blood_type = User::BloodType.new('A')
+blood_type.type
